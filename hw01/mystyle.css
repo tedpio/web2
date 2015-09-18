@@ -1,0 +1,91 @@
+Body{
+    background-image: url("/Users/Tedpioli/GitHub/web2/hw01/images/noise.png");
+	font-family:helvetica;
+	font-color:##181818;
+	
+}
+
+#options{
+	display:inline-block;
+	position:relative;
+	margin: 0 auto;
+	padding:50px;
+    webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    moz-box-flex: 1;         /* OLD - Firefox 19- */
+    width: 20%;               /* For old syntax, otherwise collapses. */
+    webkit-flex: 1;          /* Chrome */
+    ms-flex: 1;              /* IE 10 */
+    flex: 1;  
+	
+}
+
+p{
+	font-size:1em;
+	
+}
+
+h1{
+	:#7FFFD4;
+}
+
+#main-content{
+	padding-top:100px;
+	text-align:center;;
+}
+
+ul{
+	list-style:none;
+}
+
+li{
+	width:30%;
+	display:inline-block;
+	padding:10px;
+}
+
+
+
+nav{
+	font-family:courier;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+	margin:0-auto;
+	font-size:100%;
+	opacity: 0.9;
+  	background-color:white;
+  	display:block;
+ 	text-align:center;
+  
+}
+
+
+a { color:red 
+	style:none;
+	text-decoration: none;
+} 
+
+a:visited { 
+	text-decoration: none; color:black; }
+a:hover {
+	 text-decoration: none; color:gray; }
+a:focus { 
+	text-decoration: none; color:gray; }
+a:hover, a:active { 
+	text-decoration: none; color:gray }
+
+
+@media screen and (max-width: 1000px) {
+   #options { 
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+    border-bottom:2px solid #ccc;    
+  }
+
+
+ 
