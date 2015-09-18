@@ -5,7 +5,7 @@ Body{
 	
 }
 
-#options{
+.options{
 	display:inline-block;
 	position:relative;
 	margin: 0 auto;
