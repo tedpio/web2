@@ -1,0 +1,239 @@
+
+
+#container{
+	position:absolute;
+	left:50%;
+	top:30%;
+	margin:0-auto;
+	height:auto;
+	width:50%;
+	display:block;
+
+}
+#torso {
+    width:100px;
+    height:300px;
+    background-color:gray;
+    position:relative;
+    transform: rotate(30deg);
+    transform-origin: 50% 0;
+	z-index:1;	
+}
+	
+#head {
+  width:100px;
+  height:150px;
+  background-color:gray;
+  position:absolute;
+  bottom:70%;
+  left:0;
+  border-radius:50%;
+  transform: rotate(320deg);
+  transform-origin: 50% 0;
+  
+}
+
+
+#hat{
+    width:100px;
+    height:10px;
+    background-color:gray;
+    position:absolute;
+	top:40%;
+	left:40%;
+    border-radius:50%;
+    transform: rotate(180deg);
+    transform-origin: 50% 0;
+}
+
+
+#nose{
+    width:50px;
+    height:30px;
+    background-color:gray;
+    position:absolute;
+	top:80%;
+	left:80%;
+    border-radius:50%;
+    transform: rotate(190deg);
+    transform-origin: 50% 0;
+}
+
+#upper1 {
+  width:40px;
+  height:150px;
+  background-color:gray;
+  position:absolute;
+  top:10%;
+  left:16%;
+  transform: rotate(320deg);
+  transform-origin: 50% 0;
+  
+}
+
+#forearm1 {
+  width:45px;
+  height:100px;
+  position:absolute;
+  top:100%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(300deg);
+  transform-origin: 50% 0;
+}
+
+#hand1 { 
+   width:45px;
+  height:45px;
+  position:absolute;
+  top:100%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(320deg);
+  transform-origin: 50% 0;
+  
+}
+
+
+
+#upper2 {
+  width:40px;
+  height:150px;
+  background-color:gray;
+  position:absolute;
+  top:40%;
+  left:16%;
+  transform: rotate(120deg);
+  transform-origin: 50% 0;
+  
+}
+
+#forearm2 {
+  width:45px;
+  height:100px;
+  position:absolute;
+  top:100%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(270deg);
+  transform-origin: 50% 0;
+}
+
+#hand2 { 
+   width:45px;
+  height:45px;
+  position:absolute;
+  top:100%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(320deg);
+  transform-origin: 50% 0;
+  
+}
+
+
+
+
+
+
+
+#thigh1 {
+  width:40px;
+  height:150px;
+  background-color:gray;
+  position:absolute;
+  top:100%;
+  left:16%;
+  transform: rotate(40deg);
+  transform-origin: 50% 0;
+  
+}
+
+#shin1{
+  width:45px;
+  height:100px;
+  position:absolute;
+  top:100%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(70deg);
+  transform-origin: 50% 0;
+}
+
+#foot1 { 
+   width:100px;
+  height:45px;
+  position:absolute;
+  top:70%;
+  left:0%;
+  background-color:gray;
+  transform: rotate(320deg);
+  transform-origin: 50% 0;
+}
+  
+  
+#leg2{
+	position:absolute;
+	top:90%;
+	right:50%;
+}
+
+  #thigh2 {
+    width:40px;
+    height:150px;
+    background-color:gray;
+    position:absolute;
+    top:100%;
+    left:16%;
+    transform: rotate(260deg);
+    transform-origin: 100% 0;
+  
+  }
+
+  #shin2{
+    width:45px;
+    height:100px;
+    position:absolute;
+    top:100%;
+    left:0%;
+    background-color:gray;
+    transform: rotate(70deg);
+    transform-origin: 50% 0;
+  }
+
+  #foot2 { 
+     width:100px;
+    height:45px;
+    position:absolute;
+    top:100%;
+    left:0%;
+    background-color:gray;
+    transform: rotate (320deg);
+    transform-origin: 50% 0;
+}
+	#belly{
+		position:absolute;
+		top:40%;
+		left:80%;
+		width:100px;
+		height:180px;
+		border-radius:50%;
+		background-color:gray;
+	}	
+	
+	
+	#shadow{
+		position:absolute;
+		top:160%;
+		width:400px;
+		height:8px;
+		border-radius:50%;
+		background-color:lightgray;
+	    transform: rotate(150deg);
+	    transform-origin: 50% 0;
+	  }
+	}	
+	
+	
+
+  
