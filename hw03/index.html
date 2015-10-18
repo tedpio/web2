@@ -4,7 +4,9 @@
   <meta charset="utf-8" />
   <title>My Machine</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="site.js"></script>
+  <script src='https://code.jquery.com/jquery-1.11.2.js'></script>
+  <link type='text/css' rel='stylesheet' href='style.css'/>
+
 </head>
 <body>
   <header id='site-header'>
@@ -12,21 +14,22 @@
   </header>
   
   
-
+<section id="control-panel">
 <ul class="nav">
-  <li>Back-up</li>
-  <li>Shoot</li>
-  <li>Detonate</li>
+  <li id="detonate" class="button">Cloak</li>
+  <li id="left" class="button"><</li>
+  <li id="right" class="button">></li>
+
 </ul>
+</section>
   
-  
-  
-  <div id="ship">	
+<section id='main-content'>
+  <div id="ship" class="ship-class">	
   	<div id="oval">
   		<div id="window"></div>
   			<div id="tail">
   			<div id="back">
-  		<div id="flame"></div>
+  		<div id="flame" class="blink"></div>
   			</div>
   		</div>
   	</div>
@@ -34,14 +37,23 @@
   
   <div class="stars"></div>
   <div class="twinkling"></div>
-  <section id='main-content'>
-    <!-- side content -->
-	
-	
+</section>
+  
 
 
-
-
-  </section>
 </body>
+<script>
+$("#right").click(function(){
+  $("#ship").addClass("moveRight").removeClass("moveLeft");
+})
+
+
+$("#left").click(function(){
+  $("#ship").addClass("moveLeft").removeClass("moveRight");
+})
+
+$("#detonate").click(function(){
+  $("#ship").addClass("explosion").hide("#ship");
+})
+</script>
 </html> 

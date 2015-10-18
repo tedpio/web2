@@ -1,17 +1,44 @@
 
-.nav{
+body{
+	overflow: hidden;
+}
+#control-panel{
+	position:relative;
+	
+	z-index:10;
+}
+
+.arms {
+  position:absolute;
+  width:315px;
+  height:122px;
+  background:url(http://cykod.github.io/Web2Fall2015/potato/arms.png) top left no-repeat;
+  left: 25px;
+  top:180px;
+}
+
+
+#main-content{
     border:1px solid red;
     border-width:2px;
     list-style:none;
     margin:0;
     padding:0;
     text-align:center;
+	display:block;
 	
+}
+.nav{
+    border-width:2px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
 	display:block;
 }
 .nav li{
 	margin:20px;
-    border:1px solid red;
+    border:1px solid gray;
     border-width:2px;
 	height:60px;
 	width:100px;
@@ -19,13 +46,17 @@
     display:inline-block;
    	text-decoration: none; 
    	font-family:verdana;
-   	color:red;
+   	color:white;
 	padding-top:40px;
 
 }
 
+li:hover { 
+    background-color: white;
+	color:black;
+}
 
-#ship{
+.ship-class{
 	position:relative;
 	top:200px;
 	left:45%;
@@ -68,7 +99,7 @@
 	position:absolute;
 	top:20%;
 	right:50%;
-	z-index:2;
+	z-index:50;
 }
 
 
@@ -78,9 +109,9 @@
 	background: orange;
 	-webkit-border-radius: 100px / 50px;
 	border-radius: 100px / 50px;
-	position:relative;
+	position:absolute;
 	top:3px;
-	right:200%;
+	right:70%;
 	z-index:1;
 }
 
@@ -134,5 +165,65 @@
   z-index:1;
   
 }
+
+
+@keyframes blink {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+   }
+   @-webkit-keyframes blink {
+     0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+   }
+   .blink {
+     animation: blink .01s step-start 0s infinite;
+     -webkit-animation: blink .01s step-start 0s infinite;
+   }
+
+   .moveRight{
+   	  left:60%;
+	  transition:  transform 2s ease-in-out;
+   }
+
+   .moveLeft{
+   	  left:30%;
+	  transition:  transform 2s ease-in-out;
+   }
+   
+   .explosion{
+   	
+   }
+   
+ #ship{
+ position: relative;
+ -webkit-animation: floatBubble 1s infinite;
+     -webkit-animation-direction:alternate;
+   }
+
+
+ @-webkit-keyframes floatBubble{
+  from{
+         top:200px;
+         -webkit-animation-timing-function: ease-in;
+
+    }
+	
+
+    to {
+       top: 210px;
+       -webkit-animation-timing-function: ease-out;
+    }}
+
+
+
+
+
+
+
+
+
+
 
 
