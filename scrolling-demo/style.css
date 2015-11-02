@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body { font-family: Times; font-size:16px; }
+
+
+.page {
+  min-height: 100vh;
+  position:relative;
+}
+
+
+
+h1{
+	font-size:100px;
+	color:white;
+	letter-spacing: 30px;
+	font-family: 'Bitter', serif;
+	font-weight: 100;
+	  text-align:center;	
+}
+
+
+h2{
+	font-size:18px;
+	color:gray;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+    text-transform: uppercase;
+ 	letter-spacing: 10px;
+	  text-align:center;
+}
+
+
+#div1{
+	background-color:black;
+	width:100%;
+	height:100vh;
+}
+
+
+
+#div2{
+	background-color:gray;
+	width:100%;
+	
+}
+
+
+
+#div3{
+	background-color:white;
+	width:100%;
+	height:100vh;
+}
+
+
+
+#div4{
+	background-color:black;
+	width:100%;
+	height:100vh;
+}
+
+
+
+#image-div{
+	background-image:url("https://upload.wikimedia.org/wikipedia/commons/d/d8/Enigma_rotors_and_spindle_showing_contacts_rachet_and_notch.jpg");
+}
+
+
+
+#image-div2{
+	background-image:url("http://users.telenet.be/d.rijmenants/pics/hires-wehrmachtkey-stab.jpg");
+	position:absolute;
+	height:100%;
+	
+	top:0%;
+	left:0%;
+}
+
+
+
+.title {
+  opacity:0;
+  width:100%;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 2s ease-out;
+}
+
+
+.parallax-image {
+
+  background-size:cover;
+  background-position:50% 50%;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  width:100%;
+  height:100vh;
+  opacity: .2;
+  filter: alpha(opacity=40);
+}
+
+
+.arrived{
+    opacity: 1;
+    -webkit-transition: opacity 2s ease-in;
+}
+
+.text-block {
+  color:black;
+  position:relative;
+  width:480px;
+  font-size:18px;
+  padding:70px;
+  text-align: left;
+  line-height:1.5em;
+}
+
+.right-image {
+ position:absolute;
+ right: 100%; 
+ top:0px ;
+ margin-right:30px;
+}
+
