@@ -34,7 +34,7 @@ var clear = function() {
 	context.clearRect(0, 0, w, h);
 	context.fill();
 };
-    
+
 var glitchImg = function() {
 	for (var i = 0; i < randInt(1, 13); i++) {
 		var x = Math.random() * w;
@@ -50,4 +50,3 @@ var glitchImg = function() {
 var randInt = function(a, b) {
 	return ~~(Math.random() * (b - a) + a);
 };
-
