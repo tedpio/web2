@@ -107,6 +107,8 @@ h2{
 	width:100%;
 	height:auto;
 	background-color:black;
+  background-image: url("images/detail.jpg");
+  background-color: #cccccc;
 }
 
 #div7{
