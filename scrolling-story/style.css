@@ -216,7 +216,14 @@ h2{
  top:-100px ;
  margin-right:30px;
  Z-index:10;
+ transform: translate(40vw,0);
+transition: transform 2s ease;
 }
+
+.right-image.arrived {
+  transform: translate(10%,0);
+}
+
 
 .left-image {
  position:absolute;
@@ -224,4 +231,10 @@ h2{
  top:-240px ;
  margin-left:30px;
  Z-index:10;
+ transform: translate(-40vw,0);
+transition: transform 2s ease;
+}
+
+.left-image.arrived {
+  transform: translate(-50%,0);
 }

@@ -50,3 +50,23 @@ var glitchImg = function() {
 var randInt = function(a, b) {
 	return ~~(Math.random() * (b - a) + a);
 };
+
+$(".left-image").on("arrived", function(e) {
+   $(this).addClass("arrived");
+   return false;
+ });
+
+ $(".left-image").on("rearrived", function(e) {
+   $(this).removeClass("arrived");
+   return false;
+ });
+
+ $(".right-image").on("arrived", function(e) {
+    $(this).addClass("arrived");
+    return false;
+  });
+
+  $(".right-image").on("rearrived", function(e) {
+    $(this).removeClass("arrived");
+    return false;
+  });
