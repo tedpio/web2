@@ -1,30 +1,24 @@
 
-function addItems(data) {
-  console.log(data);
+function addItem(item) {
+  var $li = $("<li>").addClass("item").addClass(item.Color);
 
-  for(var i = 0; i < data.items.length; i++) {
-    addAVideo(data.items[i]);
+  $li.attr("data-category",item.Color);
+
+  var $h2 = $("<h2 class='Title'>").text(item.Name);
+  var $p = $("<p class='Description'>").text(item.Description);
+
+  $li.append($h2).append($p);
+
+  $(".collection").append($li);
+};
+
+function addItems(data) {
+  for(var i=0;i<data.length;i++) {
+    addItem(data[i]);
   }
 }
 
-function addAVideo(item) {
-   var title = item.snippet.title;
-   var imageUrl = item.snippet.thumbnails.medium.url;
-   var caption = item.snippet.description;
 
-  var $container = $(".container");
-  var $box = $("<div class='video'>");
-  var $heading = $("<h2>").text(title);
-  var $img = $("<img>").attr("src",imageUrl);
-  var $caption= $("<p>").text(caption);
-
-  $box.append($img);
-  $container.append($box);
-
-  $box.on("click",function(e) {
-    showModal(item);
-  });
-}
 
 
 function showModal(item) {
@@ -54,13 +48,3 @@ function hideModal() {
   $(".modal").hide();
 }
 
-
-<script>
-  function callback(data) {
-    console.log(data);  
-  }
-
-  Tabletop.init( { key: "https://docs.google.com/spreadsheets/d/1KS99bZkSz-68GKKalGwa8KcSwg3VztAWx2REDfcAGTM/edit#gid=0&vpid=true",
-                   callback: callback,
-                   simpleSheet: true } )
-</script>
