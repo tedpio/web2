@@ -1,0 +1,73 @@
+.overlay{
+ position:fixed;
+ height:100%;
+ width:100%;
+ left:0;
+ top:0;
+ background-color:rgba(0,0,0,0.3);
+ z-index: 2;
+ display:none;
+}
+
+.modal {
+  width: 500px;
+  position: fixed;
+  top: 20%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background-color:white;
+  padding:10px;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  border-radius:10px;
+  z-index:4;
+  display:none;
+}
+
+
+.video{
+  margin:10px;
+  width:30%;
+  display : flex
+  display:   -webkit-flex: 0;
+}
+
+.flex
+   {
+      /* basic styling */
+      width: 350px;
+      height: 200px;
+      border: 1px solid #555;
+      font: 14px Arial;
+
+      /* flexbox setup */
+      display: -webkit-flex;
+      -webkit-flex-direction: row;
+
+      display: flex;
+      flex-direction: row;
+   }
+
+   .flex > div
+   {
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
+
+      width: 30px; /* To make the transition work nicely.  (Transitions to/from
+                      "width:auto" are buggy in Gecko and Webkit, at least.
+                      See http://bugzil.la/731886 for more info.) */
+
+      -webkit-transition: width 0.7s ease-out;
+      transition: width 0.7s ease-out;
+   }
+
+   /* colors */
+   .flex > div:nth-child(1){ background : #009246; }
+   .flex > div:nth-child(2){ background : #F1F2F1; }
+   .flex > div:nth-child(3){ background : #CE2B37; }
+
+   .flex > div:hover
+   {
+        width: 200px;
+   }
+   

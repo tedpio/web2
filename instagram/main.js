@@ -12,6 +12,6 @@ for(var i=0;i<images.data.length;i++) {
    var $container = $(".container");
 
    var $img = $("<img>").attr("src",url);
-   
+
    $container.append($img);
 }
