@@ -31,7 +31,7 @@ function addABox(item) {
 function showModal(item) {
   var Title = item.Title;
   var img = item.Image;
-  var style  = item.style;
+  var style = item.style;
   var Description = item.Description;
   var Brewery = item.Brewery;
   var color = item.color;
@@ -42,7 +42,7 @@ function showModal(item) {
   var $p = $("<p>").text(Description);
   var $img = $("<img>").attr("src",img);
   var $Brewery = $("<h3>").text(Brewery);
-  var $style  = $("<h2>").text(style );
+  var $style = $("<h2>").text(style);
 
    $(".modal").append($h1,$p,$img,$style ,$Brewery);
    $(".overlay").show();
