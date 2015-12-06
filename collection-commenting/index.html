@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Collection Example</title>
+  <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+  <script src='http://cykod.github.io/Collection.js/packery.pkgd.min.js'></script>
+  <script src='http://cykod.github.io/Collection.js/tabletop.js'></script>
+  <script src='http://cykod.github.io/Collection.js/collection.js'></script>
+   <link type='text/css' rel='stylesheet' href='style.css' />
+</head>
+<body>
+
+<div id='filter-bar-wrapper'>
+  <div id='filter-bar'>
+    <input type='text' id='search' placeholder='search'/>
+    <button data-category=""            class='category selected' id="all-button">All</button>
+    <button data-category="Blue"        class='category'>blue</button>
+    <button data-category="Red"         class='category'>red</button>
+	<button data-category="black"       class='category'>black</button>
+    <button data-category="gold"        class='category'>gold</button>
+    <button data-category="green"       class='category'>green</button>
+	<button data-category="purple"      class='category'>purple</button>
+	<button data-category="White"       class='category'>white</button>
+	<button data-category="IPA"         class='category'>IPA</button>
+	<button data-order="Beerstyle"      class='order'>Beerstyle</button>
+    <button data-order="category"       class="order">Order by Color</button>
+    <button data-order="title"          class="order">Order by Title</button>
+  </div>
+</div>
+
+<ul class='collection'>
+ 
+
+
+</ul>
+
+<div class='overlay'></div>
+<div class='modal'></div>
+<script>
+
+
+// Below is a function named showModal with a parameter of item
+function showModal(item) {
+// Below it is telling it to run the empty modal
+   $(".modal").empty();
+   
+   var $h1 = $("<h1>").text(item.Name);
+   var $img = $("<img>").attr("src",item.Image);
+   var $p = $("<p>").text(item.Description);
+
+   $(".modal").append($h1,$img,$p);
+   
+   $(".overlay").show();
+   $(".modal").show();
+
+}
+
+function hideModal() {
+  $(".overlay").hide();
+  $(".modal").hide();
+}
+
+function addItem(item) {
+	console.log(item)
+  var $li = $("<li>").addClass("item").addClass(item.color.toLowerCase());
+
+  $li.attr("data-category",item.color);
+  var $h2 = $("<h2 class='name'>").text(item.Title);
+  var $p = $("<p class='description'>").text(item.Description);
+  var $style = $("<p class='beerStyle'>").text(item.Beerstyle);
+  var $img = $("<img>").attr("src",item.Image);
+  
+
+  $li.append($h2,$p,$style,$img);
+
+  $li.on("click",function(e) {
+      showModal(item);
+  });
+
+  $(".collection").append($li);
+};
+
+function addItems(data) {
+  for(var i=0;i<data.length;i++) {
+    addItem(data[i]);
+  }
+}
+
+
+function callback(data) { 
+
+  addItems(data);
+
+  var $container = $('.collection');
+  $container.packery({
+    itemSelector: '.item',
+    gutter: 10,
+  });
+  
+  var myCollection = $(".item").collection({
+    filters: { 
+      "title": "h2",
+	  "Beerstyle": ".beerStyle",
+      "category": "[data-category]"
+    },
+
+    update: function() { 
+      $container.packery(); 
+      setTimeout(function() { $container.packery()},600);
+    },
+    ordered: function() {
+      $container.packery('reloadItems');
+      console.log("Whoa");
+    },
+    hide: function($elem) { $elem.hide(); },
+    show: function($elem) { $elem.fadeIn(500); },
+  });
+
+  $(".category").on("click",function(e) {
+      var category = $(this).data("category");
+      $("#filter-bar button.category").removeClass("selected");
+      $(this).addClass("selected");
+      myCollection.filtered("category",category);
+  });
+
+
+  $(".order").on("click",function(e) {
+      var order = $(this).data("order");
+      $("#filter-bar button.category").removeClass("selected");
+      $(this).addClass("selected");
+      myCollection.ordered(order);
+  });
+  
+  $(".Beerstyle").on("click",function(e) {
+      var order = $(this).data("order");
+      $("#filter-bar button.Beerstylw").removeClass("selected");
+      $(this).addClass("selected");
+      myCollection.ordered(order);
+  });
+
+
+
+  $("#search").on("change keyup",function(e) {
+      myCollection.filtered("title", $(this).val());
+  });
+
+  $(".overlay").on("click",function(e) {
+      hideModal();
+  });
+
+}
+
+  Tabletop.init( { key: "https://docs.google.com/spreadsheets/d/1KS99bZkSz-68GKKalGwa8KcSwg3VztAWx2REDfcAGTM/pubhtml",
+                   callback: callback,
+                   simpleSheet: true } )
+
+
+</script>
+	
+</body>
+</html>
