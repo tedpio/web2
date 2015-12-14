@@ -13,7 +13,6 @@
   <header id='site-header'>
     <img class="logo" src="images/logo.png" alt="Logo" width="auto">
     <img class="overlap" src="images/hop.png" alt="hop" width="auto">
-	
      <nav>
 		<div id='filter-bar-wrapper'>
 		  <div id='filter-bar'>
@@ -26,7 +25,6 @@
 		    <button data-category="green"       class='category'>green</button>
 			<button data-category="purple"      class='category'>purple</button>
 			<button data-category="White"       class='category'>white</button>
-			<button data-category="IPA"         class='category'>IPA</button>
 			<button data-order="Beerstyle"      class='order'>Beerstyle</button>
 		    <button data-order="category"       class="order">Order by Color</button>
 		    <button data-order="title"          class="order">Order by Title</button>
@@ -34,14 +32,14 @@
 		</div>
     </nav>
   </header>
-
-<ul class='collection'></ul>
-<div class='overlay'></div>
-<div class='modal'></div>
-
-  <footer>
-    <p>Copyright Craft Canning CO. 2015</p>
-  </footer>
+<div class='wrapper'>
+	<ul class='collection'></ul>
+	<div class='overlay'></div>
+	<div class='modal'></div>
+  	<footer>
+   	 	<p>Copyright Craft Canning CO. 2015</p>
+  	</footer>
+</div>
 </body>
 
 <script src='main.js'></script>
@@ -50,48 +48,48 @@
 
 function showModal(item) {
      $(".modal").empty();
-   
+     var $h2 = $("<h2 class='name'>").text(item.Title);
+     var $p = $("<p class='description'>").text(item.Description);
+     var $style = $("<p class='beerStyle'>").text(item.Beerstyle);
      var $h1 = $("<h1>").text(item.Name);
      var $img = $("<img>").attr("src",item.Image);
-     var $p = $("<p>").text(item.Description);
 
-     $(".modal").append($h1,$img,$p);
-   
+     $(".modal").append($h1,$h2,$style,$p,$img);
      $(".overlay").show();
      $(".modal").show();
 
-  }
+}
 
   function hideModal() {
     $(".overlay").hide();
     $(".modal").hide();
-  }
+}
 
   function addItem(item) {
   	console.log(item)
     var $li = $("<li>").addClass("item").addClass(item.color.toLowerCase());
 
     $li.attr("data-category",item.color);
-    var $h2 = $("<h2 class='name'>").text(item.Title);
-    var $p = $("<p class='description'>").text(item.Description);
-    var $style = $("<p class='beerStyle'>").text(item.Beerstyle);
     var $img = $("<img>").attr("src",item.Image);
-  
-
-    $li.append($h2,$p,$style,$img);
+    var $style = $("<p class='beerStyle'>").text(item.Beerstyle);
+    var $h2 = $("<h2 class='nameHidden'>").text(item.Title);
+	
+    $li.append($img,$style,$h2);
+	
 
     $li.on("click",function(e) {
         showModal(item);
     });
 
+
     $(".collection").append($li);
-  };
+};
 
   function addItems(data) {
     for(var i=0;i<data.length;i++) {
       addItem(data[i]);
-    }
   }
+}
 
 
   function callback(data) { 
@@ -102,33 +100,33 @@ function showModal(item) {
     $container.packery({
       itemSelector: '.item',
       gutter: 10,
-    });
+});
   
     var myCollection = $(".item").collection({
       filters: { 
-        "title": "h2",
-  	  "Beerstyle": ".beerStyle",
-        "category": "[data-category]"
-      },
+          "title": "h2",
+  	      "Beerstyle": ".beerStyle",
+          "category": "[data-category]"
+},
 
       update: function() { 
         $container.packery(); 
         setTimeout(function() { $container.packery()},600);
-      },
+},
       ordered: function() {
         $container.packery('reloadItems');
         console.log("Whoa");
-      },
+},
       hide: function($elem) { $elem.hide(); },
       show: function($elem) { $elem.fadeIn(500); },
-    });
+});
 
     $(".category").on("click",function(e) {
         var category = $(this).data("category");
         $("#filter-bar button.category").removeClass("selected");
         $(this).addClass("selected");
         myCollection.filtered("category",category);
-    });
+});
 
 
     $(".order").on("click",function(e) {
@@ -136,24 +134,24 @@ function showModal(item) {
         $("#filter-bar button.category").removeClass("selected");
         $(this).addClass("selected");
         myCollection.ordered(order);
-    });
+});
   
     $(".Beerstyle").on("click",function(e) {
         var order = $(this).data("order");
-        $("#filter-bar button.Beerstylw").removeClass("selected");
+        $("#filter-bar button.Beerstyle").removeClass("selected");
         $(this).addClass("selected");
         myCollection.ordered(order);
-    });
+});
 
 
 
     $("#search").on("change keyup",function(e) {
         myCollection.filtered("title", $(this).val());
-    });
+});
 
     $(".overlay").on("click",function(e) {
         hideModal();
-    });
+});
 
   }
 
